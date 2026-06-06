@@ -1,5 +1,7 @@
 # Document Management System
 
+Group # 6
+
 ## Introduction
 
 The Document Management System is a C++ Object-Oriented Programming (OOP) based project designed to manage digital documents efficiently. The system allows users to create, search, view, delete, and save documents using file handling techniques.
