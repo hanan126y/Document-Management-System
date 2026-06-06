@@ -104,10 +104,10 @@ g++ main.cpp Document.cpp TextDocument.cpp PDFDocument.cpp DocumentManager.cpp F
 
 # Team Members
 
-* Member 1 — Base Classes & Inheritance
-* Member 2 — File Handling
-* Member 3 — Menu System & Search Functions
-* Member 4 — GitHub Management & Presentation
+* Hanan Ahmed — Core OOP Architecture
+* Saad — Data Persistence & File I/O
+* Abdul Wasay — Document Management & Search
+* Abdullah — User Interface & Integration
 
 ---
 
