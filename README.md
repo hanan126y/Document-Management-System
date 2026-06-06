@@ -81,7 +81,7 @@ documents.txt
 ## Compile
 
 ```bash
-g++ main.cpp Document.cpp TextDocument.cpp PDFDocument.cpp DocumentManager.cpp FileHandler.cpp -o dms
+g++ main.cpp document.cpp textDocument.cpp PDFdocument.cpp documentManager.cpp fileHandler.cpp -o dms
 ```
 
 ## Run
