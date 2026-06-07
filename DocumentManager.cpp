@@ -2,6 +2,8 @@
 
 #include "DocumentManager.h"
 
+using namespace std;
+
 void DocumentManager::addDocument()
 {
     int type;
@@ -20,6 +22,15 @@ void DocumentManager::addDocument()
     cin >> id;
 
     cin.ignore();
+
+    for (size_t i = 0; i < documents.size(); i++)
+{
+    if (documents[i]->getId() == id)
+    {
+        cout << "\nError: A document with ID " << id << " already exists.\n";
+        return;
+    }
+}
 
     cout << "Enter Title: ";
     getline(cin, title);
@@ -47,7 +58,7 @@ void DocumentManager::viewDocuments()
         return;
     }
 
-    for (int i = 0; i < documents.size(); i++)
+    for (size_t i = 0; i < documents.size(); i++)
     {
         documents[i]->display();
     }
@@ -55,7 +66,7 @@ void DocumentManager::viewDocuments()
 
 void DocumentManager::searchDocument(int id)
 {
-    for (int i = 0; i < documents.size(); i++)
+    for (size_t i = 0; i < documents.size(); i++)
     {
         if (documents[i]->getId() == id)
         {
@@ -69,7 +80,7 @@ void DocumentManager::searchDocument(int id)
 
 void DocumentManager::searchDocument(string title)
 {
-    for (int i = 0; i < documents.size(); i++)
+    for (size_t i = 0; i < documents.size(); i++)
     {
         if (documents[i]->getTitle() == title)
         {
@@ -88,7 +99,7 @@ void DocumentManager::deleteDocument()
     cout << "\nEnter Document ID to Delete: ";
     cin >> id;
 
-    for (int i = 0; i < documents.size(); i++)
+    for (size_t i = 0; i < documents.size(); i++)
     {
         if (documents[i]->getId() == id)
         {
@@ -127,6 +138,13 @@ void DocumentManager::menu()
         cout << "Enter Choice: ";
         cin >> choice;
 
+        if (cin.fail())
+{
+    cin.clear();
+    cin.ignore(10000, '\n');
+    choice = -1;
+}
+
         if (choice == 1)
         {
             addDocument();
@@ -163,13 +181,22 @@ void DocumentManager::menu()
         {
             FileHandler::saveToFile(documents);
         }
+        else if (choice != 0)
+        {
+            cout << "\nInvalid option. Please enter 0-6.\n";
+        }
 
     } while (choice != 0);
 }
 
+DocumentManager::DocumentManager()
+{
+    FileHandler::loadFromFile(documents);
+}
+
 DocumentManager::~DocumentManager()
 {
-    for (int i = 0; i < documents.size(); i++)
+    for (size_t i = 0; i < documents.size(); i++)
     {
         delete documents[i];
     }
