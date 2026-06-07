@@ -8,7 +8,6 @@
 #include "PDFDocument.h"
 #include "FileHandler.h"
 
-using namespace std;
 
 class DocumentManager
 {
@@ -16,6 +15,9 @@ private:
     vector<Document*> documents;
 
 public:
+
+DocumentManager(); 
+
     void addDocument();
     void viewDocuments();
     void searchDocument(int id);      // Static Polymorphism
