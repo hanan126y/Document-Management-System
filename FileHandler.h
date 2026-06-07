@@ -13,6 +13,8 @@ class FileHandler
 {
 public:
     static void saveToFile(vector<Document*> &docs);
+    // Add this line inside the class, after saveToFile:
+    static void loadFromFile(vector<Document*> &docs);
 };
 
 #endif
